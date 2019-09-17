@@ -103,9 +103,10 @@ func (p Plugin) Upload() {
 	for _, obj := range delRes.DeletedObjects {
 		fmt.Println(obj)
 	}
-	listFile(p.Config.Dist)
 
 	fmt.Println("\n+ Upload Object:")
+	listFile(p.Config.Dist)
+
 	for _, file := range DistList {
 		objectPath := objectName + "/" + file[len(p.Config.Dist)+1:]
 		err = bucket.PutObjectFromFile(objectPath, file)
