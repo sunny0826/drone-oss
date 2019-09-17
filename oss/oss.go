@@ -82,11 +82,12 @@ func (p Plugin) Upload() {
 			HandleError(err)
 		}
 		marker = oss.Marker(lsRes.NextMarker)
-
 		for _, path := range lsRes.Objects {
-			maekerList = append(maekerList, path.Key)
+			obj := strings.Split(path.Key, "/")[0]
+			if obj == objectName {
+				maekerList = append(maekerList, path.Key)
+			}
 		}
-
 		if !lsRes.IsTruncated {
 			break
 		}
@@ -94,12 +95,15 @@ func (p Plugin) Upload() {
 
 	fmt.Printf("+ %d files in total", len(maekerList))
 
-	_, err = bucket.DeleteObjects(maekerList)
+	delRes, err := bucket.DeleteObjects(maekerList)
 	if err != nil {
 		HandleError(err)
 	}
-	//fmt.Println("Deleted Objects:", delRes.DeletedObjects)
-	fmt.Println("+ Clean Up!")
+	fmt.Println("\n+ Deleted Objects:")
+	for _, obj := range delRes.DeletedObjects {
+		fmt.Println(obj)
+	}
+	fmt.Println("\n+ Clean Up!")
 
 	listFile(p.Config.Dist)
 

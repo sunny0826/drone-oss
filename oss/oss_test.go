@@ -17,10 +17,10 @@ func TestPlugin_Exec(t *testing.T) {
 			fields:fields{
 				Config:Config{
 					Dist:"dist",
-					Path:"xxx/test",
+					Path:"xxx/devops-test",
 					EndPoint:"oss-cn-shanghai.aliyuncs.com",
-					AccessKeyID:"xxxxx",
-					AccessKeySecret:"xxxxxx",
+					AccessKeyID:"xxx",
+					AccessKeySecret:"xxx",
 				},
 			},
 
