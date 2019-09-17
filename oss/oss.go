@@ -33,7 +33,6 @@ type (
 )
 
 func (p Plugin) Exec() error {
-
 	if p.Config.ModName != "" {
 		envfile := Envfile{}
 		envfile.ReadYaml("./env.yaml")

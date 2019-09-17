@@ -67,7 +67,7 @@ func run(c *cli.Context) error {
 			Dist: c.String("oss.dist"),
 			Path: c.String("oss.path"),
 			EndPoint: c.String("oss.endpoint"),
-			AccessKeyID: c.String("oss.path"),
+			AccessKeyID: c.String("access.key"),
 			AccessKeySecret: c.String("access.secret"),
 			ModName: c.String("modname"),
 		},
