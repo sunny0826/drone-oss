@@ -1,4 +1,6 @@
 # drone-oss
+![](https://img.shields.io/docker/cloud/automated/guoxudongdocker/drone-oss.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/guoxudongdocker/drone-oss.svg)
 
 drone plugin of oss
 
